@@ -17,9 +17,27 @@ namespace MundiCupWEB.Controllers
             return View();
         }
 
-        private void Adicionar(){
-            
+        public IActionResult Distribute(Team[] teams){
+            int n =1;
+            var teamsKey1 = new List<Team>();
+            var teamsKey2 = new List<Team>();
 
+            for (int i=0; i<teams.Length; i++)
+            {
+                if (n != 2)
+                {
+                    teamsKey1.Add(teams[i]);
+                    n++;                     
+                }else{
+                    //ERRROOOOOOOOOOOOOOOOOO
+                    //teamsKey2.Add(teamsKey1);
+                    n=1;               
+                }           
+            }
+
+            
+            //List<List<Team>>;
+            return View("keys");
         }
 
         public IActionResult Privacy()

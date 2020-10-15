@@ -1,0 +1,7 @@
+<form asp-action="Distribute">
+    @for (var i = 0; i <=Convert.ToInt32(ViewData["qtd"]); i++)
+    {
+        <input type="text" id="@($"team[{i}].name")" name="@($"team[{i}].name")"/>
+    }
+    <button type="submit">Distribuir</button>
+</form>

@@ -1,7 +1,27 @@
 ﻿@{
     ViewData["Title"] = "MundiCup";
+    
 }
 
 <div class="text-center">
+    <p font-size=50px>Quantidade de Times:</p>
+    <input  type="text" id = "teamQtd" onkeyup="OnlyNumber(this);" placeholder="Apenas número..."/>
+    <button id = "addBtn">Adicionar</button>
+    <hr/>
+    <script>
+        function OnlyNumber(num) {
+            var er = /[^0-9.]/;
+            er.lastIndex = 0;
+            var field = num;
+            if (er.test(field.value)) {
+                field.value = "";
+            }else{
+                
+                if(field.value%2 !=0){
+                    field.value = "";
+                }
+            }
+        }
+    </script>
     
 </div>
