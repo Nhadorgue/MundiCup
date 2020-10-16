@@ -1,12 +1,9 @@
-﻿@{
-    ViewData["Title"] = "MundiCup";
-    
-}
-
+﻿<form asp-action="teamNames">
 <div class="text-center">
     <p font-size=50px>Quantidade de Times:</p>
-    <input  type="text" id = "teamQtd" onkeyup="OnlyNumber(this);" placeholder="Apenas número..."/>
-    <button id = "addBtn">Adicionar</button>
+    <input  type="number" id = "qtd" name="qtd" onkeyup="OnlyNumber(this);" placeholder="Apenas número..."/>
+
+    <button type = "submit">Adicionar</button>
     <hr/>
     <script>
         function OnlyNumber(num) {
@@ -15,13 +12,9 @@
             var field = num;
             if (er.test(field.value)) {
                 field.value = "";
-            }else{
-                
-                if(field.value%2 !=0){
-                    field.value = "";
-                }
             }
         }
     </script>
     
 </div>
+</form>

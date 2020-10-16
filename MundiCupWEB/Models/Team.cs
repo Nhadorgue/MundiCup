@@ -8,7 +8,7 @@ namespace MundiCupWEB.Models
         public string name { get; private set; }
 
         public int key { get; private set; }
-
+        //ctor        
         public Team(string name, int key)
         {
             this.name = name;

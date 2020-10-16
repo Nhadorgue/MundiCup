@@ -13,31 +13,34 @@ namespace MundiCupWEB.Controllers
     {
         public IActionResult Index()
         {
-            
             return View();
         }
 
-        public IActionResult Distribute(Team[] teams){
+        [HttpPost]
+        public IActionResult Distribute(List<Team> teams){
             int n =1;
             var teamsKey1 = new List<Team>();
             var teamsKey2 = new List<Team>();
 
-            for (int i=0; i<teams.Length; i++)
+            for (int i=0; i<teams.Count; i++)
             {
                 if (n != 2)
                 {
                     teamsKey1.Add(teams[i]);
                     n++;                     
                 }else{
-                    //ERRROOOOOOOOOOOOOOOOOO
                     //teamsKey2.Add(teamsKey1);
                     n=1;               
                 }           
             }
-
-            
             //List<List<Team>>;
             return View("keys");
+        }
+
+        public IActionResult teamNames(int qtd){
+            ViewData["qtd"] = qtd;
+
+            return View();
         }
 
         public IActionResult Privacy()

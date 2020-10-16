@@ -1,7 +1,33 @@
-<form asp-action="Distribute">
-    @for (var i = 0; i <=Convert.ToInt32(ViewData["qtd"]); i++)
-    {
-        <input type="text" id="@($"team[{i}].name")" name="@($"team[{i}].name")"/>
-    }
-    <button type="submit">Distribuir</button>
+<form method = "post" asp-action="Distribute">
+    <div class="text-center">
+        @for (var i = 0; i <Convert.ToInt32(ViewData["qtd"]); i++)
+        {
+            <input class="names" type="text" id="@($"teams[{i}].name")" name="@($"teams[{i}].name")"/><br/><br/>
+        }
+        <button type="submit">Distribuir</button>
+        <hr/>
+        
 </form>
+
+<script>
+
+    var inputs = document.getElementsByClassName("names");
+    var arr = [];
+    inputs.forEach(input => {
+            var nam = input.value;
+            arr.push({ name: nam});
+    });
+
+    $.ajax({
+    type: "POST",
+    contentType: "application/json; charset=utf-8",
+    url: "/Home/Values",
+    data: JSON.stringify(arr),
+    dataType: "json",
+    success: function (response, data) {
+        alert(response.someValue);
+    },
+    error: function (err) {
+    }
+});
+</script>
